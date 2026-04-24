@@ -9,10 +9,10 @@ spec:
         elements:
           - app: nginx
             chart: nginx
-            version: "18.3.5"
+            version: "23.0.3"
           - app: apache
             chart: apache
-            version: "11.3.4"
+            version: "11.4.29"
   template:
     metadata:
       name: "dev-{{app}}"
