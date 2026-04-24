@@ -1,7 +1,13 @@
 replicaCount: 1
 
+image:
+  repository: public.ecr.aws/docker/library/redis
+  tag: "7-alpine"
+  pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
+  port: 6379
 
 resources:
   requests:
@@ -10,9 +16,3 @@ resources:
   limits:
     cpu: 100m
     memory: 128Mi
-
-ingress:
-  enabled: false
-
-autoscaling:
-  enabled: false

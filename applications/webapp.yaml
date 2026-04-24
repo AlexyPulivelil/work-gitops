@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    # Chart from your Docker Hub OCI
+    - repoURL: registry-1.docker.io/techino
+      chart: webapp
+      targetRevision: 0.1.0
+      helm:
+        releaseName: webapp
+        valueFiles:
+          - $values/envs/dev/webapp/values.yaml
+    # Values from GitOps repo
+    - repoURL: https://github.com/AlexyPulivelil/work-gitops.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
