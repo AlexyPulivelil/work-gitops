@@ -4,7 +4,7 @@
 apps:
   webapp:
     chart: webapp
-    version: "0.1.0"   # <- bump this to deploy new webapp build
+    version: "0.2.0"   # <- bump this to deploy new webapp build
     values: {}
   cache:
     chart: cache
