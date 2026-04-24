@@ -5,10 +5,18 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: registry-1.docker.io/techino
-    chart: app-of-apps
-    targetRevision: 0.1.0
+  sources:
+    # Helm chart from Docker Hub — contains only app chart names + versions
+    - repoURL: registry-1.docker.io/techino
+      chart: app-of-apps
+      targetRevision: 0.1.0
+      helm:
+        valueFiles:
+          - $infra/envs/dev/infra/infra.yaml
+    # GitOps repo — provides infra.yaml as values to the chart above
+    - repoURL: https://github.com/AlexyPulivelil/work-gitops.git
+      targetRevision: HEAD
+      ref: infra
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

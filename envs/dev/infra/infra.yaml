@@ -1,0 +1,17 @@
+# Infrastructure config — not stored in Helm chart.
+# Change repoURL, branch, registry, namespace, or valuesFile paths here
+# and push to GitOps. root ArgoCD Application will pick it up automatically.
+
+gitops:
+  repoURL: https://github.com/AlexyPulivelil/work-gitops.git
+  targetRevision: HEAD
+
+registry: registry-1.docker.io/techino
+
+apps:
+  webapp:
+    namespace: apps-dev
+    valuesFile: envs/dev/webapp/values.yaml
+  cache:
+    namespace: apps-dev
+    valuesFile: envs/dev/cache/values.yaml
