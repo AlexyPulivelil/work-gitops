@@ -1,0 +1,12 @@
+# App versions — edit here in GitOps to deploy a new chart version.
+# Push this file and ArgoCD syncs automatically. No Helm chart rebuild needed.
+
+apps:
+  webapp:
+    chart: webapp
+    version: "0.1.0"   # <- bump this to deploy new webapp build
+    values: {}
+  cache:
+    chart: cache
+    version: "0.1.0"   # <- bump this to deploy new cache build
+    values: {}

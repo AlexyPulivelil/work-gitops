@@ -6,14 +6,15 @@ metadata:
 spec:
   project: default
   sources:
-    # Helm chart from Docker Hub — contains only app chart names + versions
+    # Helm chart from Docker Hub — templates only, no hardcoded values
     - repoURL: registry-1.docker.io/techino
       chart: app-of-apps
-      targetRevision: 0.2.0
+      targetRevision: 0.3.0
       helm:
         valueFiles:
-          - $infra/envs/dev/infra/infra.yaml
-    # GitOps repo — provides infra.yaml as values to the chart above
+          - $infra/envs/dev/infra/infra.yaml   # env config: repoURL, registry, namespace
+          - $infra/envs/dev/infra/apps.yaml    # app versions: bump here for new builds
+    # GitOps repo — provides both infra.yaml and apps.yaml
     - repoURL: https://github.com/AlexyPulivelil/work-gitops.git
       targetRevision: HEAD
       ref: infra
