@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AlexyPulivelil/work-gitops.git
-    targetRevision: HEAD
-    path: applications
+    repoURL: registry-1.docker.io/techino
+    chart: app-of-apps
+    targetRevision: 0.1.0
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
