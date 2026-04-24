@@ -7,12 +7,9 @@ spec:
   generators:
     - list:
         elements:
-          - app: nginx
-            chart: nginx
-            version: "23.0.3"
-          - app: nginx2
-            chart: nginx
-            version: "23.0.3"
+          - app: platform-bundle
+            chart: platform-bundle
+            version: "0.1.0"
   template:
     metadata:
       name: "dev-{{app}}"

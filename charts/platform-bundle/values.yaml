@@ -1,0 +1,16 @@
+nginx:
+  enabled: true
+  replicaCount: 1
+  ingress:
+    enabled: false
+
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: false
+  replica:
+    replicaCount: 0
