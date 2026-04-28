@@ -6,4 +6,4 @@ namespace: apps-dev
 
 # Common defaults applied to ALL apps. Override per-app in apps.yaml under values:
 defaults:
-  replicaCount: 1
+  replicaCount: 3
