@@ -3,3 +3,7 @@ targetRevision: HEAD
 valuesPath: envs/dev
 registry: registry-1.docker.io/techino
 namespace: apps-dev
+
+# Common defaults applied to ALL apps. Override per-app in apps.yaml under values:
+defaults:
+  replicaCount: 1

@@ -9,7 +9,7 @@ spec:
     # Helm chart from Docker Hub — templates only, no hardcoded values
     - repoURL: registry-1.docker.io/techino
       chart: app-of-apps
-      targetRevision: 0.3.0
+      targetRevision: 0.4.0
       helm:
         valueFiles:
           - $infra/envs/dev/infra/infra.yaml   # env config: repoURL, registry, namespace
